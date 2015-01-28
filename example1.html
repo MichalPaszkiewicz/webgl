@@ -1,13 +1,12 @@
 <html>
 	<head>
 		<title>Example 1</title>
+		<script src="standard.js"></script>
 	</head>
 	<body>
 		<canvas id="canvas" style="border: none;" width="500" height="500"></canvas>
 	
 			<script>
-				var gl; // A global variable for the WebGL context
-		
 				function start() {
 					var canvas = document.getElementById("canvas");
 				
@@ -22,23 +21,7 @@
 						gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);      // Clear the color as well as the depth buffer.
 					}
 				}
-				
-				function initWebGL(canvas){
-					gl = null;
-					
-					try{
-						gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-					}
-					catch(e){
-						console.log(e);
-					}
-					
-					if(!gl){
-						alert("Unable to initialise WebGL. Your browser may not support it.");
-					}
-					
-					return gl;
-				}
+			
 				
 				/* modify rendered resolution of WebGL context:
 					gl.viewport(0, 0, canvas.width, canvas.height);
