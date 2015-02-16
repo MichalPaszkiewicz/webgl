@@ -21,6 +21,13 @@
 				}
 			</script>
 			<script>
+				function play(){
+					start();
+					initBuffers();
+					initShaders();
+					drawScene();
+				}
+				
 				function start() {
 					var canvas = document.getElementById("canvas");
 				
