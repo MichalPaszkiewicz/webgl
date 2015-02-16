@@ -8,16 +8,9 @@
 	<body>
 		<canvas id="canvas" style="border: none;" width="500" height="500"></canvas>
 			<script id="shader-fs" type="x-shader/x-fragment">
+				varying lowp vec4 vColor;
 				void main(void) {
-					gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
-				}
-			</script>
-			<script id="shader-vs" type="x-shader/x-vertex">
-				attribute vec3 aVertexPosition;
-				uniform mat4 uMVMatrix;
-				uniform mat4 uPMatrix;
-				void main(void) {
-					gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+					gl_FragColor = vColor;
 				}
 			</script>
 			<script id="shader-vs" type="x-shader/x-vertex">
@@ -77,6 +70,9 @@
 					  
 					vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
 					gl.enableVertexAttribArray(vertexPositionAttribute);
+					
+					vertexColorAttribute = gl.getAttribLocation(shaderProgram, "aVertexColor");
+  					gl.enableVertexAttribArray(vertexColorAttribute);
 				}
 				
 				function getShader(gl, id) {
@@ -159,7 +155,7 @@
 					loadIdentity();
 					mvTranslate([-0.0, 0.0, -6.0]);
 					gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
-					gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
+					gl.vertexAttribPointer(vertexColorAttribute, 4, gl.FLOAT, false, 0, 0);
 					setMatrixUniforms();
 					gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 				}
