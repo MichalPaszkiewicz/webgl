@@ -191,15 +191,16 @@
 							generatedColors = generatedColors.concat(c);
 						}
 					}
+					
+					//squareVerticesColorBuffer = gl.createBuffer();
+					//gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesColorBuffer);
+					//gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+					
 						  
 					cubeVerticesColorBuffer = gl.createBuffer();
 					gl.bindBuffer(gl.ARRAY_BUFFER, cubeVerticesColorBuffer);
 					gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(generatedColors), gl.STATIC_DRAW);
 				  
-					//squareVerticesColorBuffer = gl.createBuffer();
-					//gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesColorBuffer);
-					//gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-					
 					cubeVerticesIndexBuffer = gl.createBuffer();
 					gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVerticesIndexBuffer);
 					  
