@@ -27,6 +27,8 @@
 				}
 			</script>
 			<script>
+				var squareRotation = 0.0;
+				
 				function play(){
 					start();
 					initBuffers();
@@ -154,6 +156,10 @@
 					perspectiveMatrix = makePerspective(45, 640.0/480.0, 0.1, 100.0);
 					loadIdentity();
 					mvTranslate([-0.0, 0.0, -6.0]);
+					
+					mvPushMatrix();
+					mvRotate(squareRotation, [1, 0, 1]);
+					
 					gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
 					gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
 					
@@ -162,6 +168,15 @@
 					
 					setMatrixUniforms();
 					gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+					
+					mvPopMatrix();
+					
+					var currentTime = (new Date).getTime();
+					if (lastSquareUpdateTime) {
+						var delta = currentTime - lastSquareUpdateTime;
+						squareRotation += (30 * delta) / 1000.0;
+					}
+					lastSquareUpdateTime = currentTime;
 				}
 				
 				function loadIdentity() {
