@@ -178,6 +178,8 @@
 						squareRotation += (30 * delta) / 1000.0;
 					}
 					lastSquareUpdateTime = currentTime;
+					
+					window.requestAnimationFrame(drawScene);
 				}
 				
 				function loadIdentity() {
