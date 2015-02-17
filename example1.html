@@ -232,11 +232,11 @@
 					mvPushMatrix();
 					mvRotate(squareRotation, [1, 0, 1]);
 					
-					//gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
-					//gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
+					gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
+					gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
 					
-					//gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesColorBuffer);
-					//gl.vertexAttribPointer(vertexColorAttribute, 4, gl.FLOAT, false, 0, 0);
+					gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesColorBuffer);
+					gl.vertexAttribPointer(vertexColorAttribute, 4, gl.FLOAT, false, 0, 0);
 					
 					gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVerticesIndexBuffer);
 					setMatrixUniforms();
